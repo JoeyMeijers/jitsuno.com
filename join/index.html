@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join on Jitsuno</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="center">
+    <div class="card">
+      <div class="logo">J</div>
+      <h1>You're invited!</h1>
+      <p>Someone invited you to join a channel on Jitsuno, the BJJ training tracker.</p>
+      <a class="btn btn-open" id="open-btn" href="jitsuno://">Open in Jitsuno</a>
+      <a class="btn btn-store" href="https://apps.apple.com/app/id6773001800">Download Jitsuno</a>
+    </div>
+  </div>
+  <script>
+    const channel = new URLSearchParams(window.location.search).get('channel');
+    if (channel) {
+      // matflow:// works in every released version; jitsuno:// only from 2.4.0.
+      document.getElementById('open-btn').href = 'matflow://join?channel=' + encodeURIComponent(channel);
+    }
+  </script>
+</body>
+</html>
